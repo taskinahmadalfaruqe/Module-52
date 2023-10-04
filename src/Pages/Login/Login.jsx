@@ -1,16 +1,30 @@
 import {Link} from "react-router-dom";
 import Navbar from "../../Component/NavBar/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/Context";
 
 const Login = () => {
-
+    const {logIn}=useContext(AuthContext);
     const handelForm =e=>{
         e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        const data = new FormData(e.currentTarget.value)
-        console.log(email)
-        console.log(password)
+        
+        // console.log(e.currentTarget)
+        // const email = e.target.email.value;
+        // const password = e.target.password.value;
+
+        const data = new FormData(e.currentTarget)
         console.log(data)
+        const email = data.get('email')
+        const password = data.get('password');
+
+        logIn(email, password)
+        .then(result=>{
+            console.log(result.user)
+        })
+        .catch(error=>{
+            console.error(error)
+        })
+        
         }
     return (
         <div>

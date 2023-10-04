@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Context/Context";
 
 const Navbar = () => {
+  const {user, logOut}=useContext(AuthContext);
   const NavLinks = (
     <div className="flex gap-5 flex-col lg:flex-row">
       <li>
@@ -55,12 +58,23 @@ const Navbar = () => {
             </label>
           </div>
           <div>
-            <Link
+            {
+              user ? 
+              <Link
+              onClick={logOut}
+              className=" btn bg-[#D72050] hover:text-[#D72050] hover:border-[#D72050] text-white "
+            >
+              <button>Sign Out</button>
+            </Link>
+              :
+              <Link
               to="/login"
               className=" btn bg-[#D72050] hover:text-[#D72050] hover:border-[#D72050] text-white "
             >
               <button>Login</button>
             </Link>
+            }
+            
           </div>
         </div>
       </div>

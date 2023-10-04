@@ -1,19 +1,29 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../Component/NavBar/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/Context";
 
 const SignUp = () => {
+
+const {createUser} =useContext(AuthContext);
+
     const handelSubmit=(e)=>{
         e.preventDefault();
         const data =new FormData(e.currentTarget)
-        const name= data.get('name');
-        const photo= data.get('photoURL');
+        // const name= data.get('name');
+        // const photo= data.get('photoURL');
         const email= data.get('email');
         const password= data.get('password');
-        console.log(name)
-        console.log(photo)
-        console.log(email)
-        console.log(password)
+        
+        createUser(email,password)
+        .then((result) => {
+            console.log(result.user)
+          })
+          .catch((error) => {
+            console.error(error)
+          });
     }
+
   return (
     <div>
       <Navbar></Navbar>
