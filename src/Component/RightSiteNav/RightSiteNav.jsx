@@ -49,6 +49,13 @@ const RightSiteNav = () => {
                 <img src="/qZone2.png" alt="Q Zone" />
                 <img src="/qZone3.png" alt="Q Zone" />
             </div>
+            <div style={{background:`url(/bg.png)`, backgroundRepeat: 'no-repeat', backgroundSize: "cover"}} className="p-2 rounded-md space-y-5 text-white text-center py-10">
+                <h2 className="text-2xl font-semibold ">
+                Create an Amazing Newspaper
+                </h2>
+                <p>Discover thousands of options, easy to customize layouts, one-click to import demo and much more.</p>
+                <button className="btn bg-[#D72050] hover:text-[#D72050] hover:border-[#D72050] text-white w-full">Learn More</button>
+            </div>
         </div>
     );
 };

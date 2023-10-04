@@ -50,12 +50,15 @@ const Navbar = () => {
           <div>
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img src='/user.png'/>
+                <img src="/user.png" />
               </div>
             </label>
           </div>
           <div>
-            <Link to="/login" className="btn">
+            <Link
+              to="/login"
+              className=" btn bg-[#D72050] hover:text-[#D72050] hover:border-[#D72050] text-white "
+            >
               <button>Login</button>
             </Link>
           </div>
