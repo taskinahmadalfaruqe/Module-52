@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../Component/NavBar/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/Context";
+import Swal from 'sweetalert2'
 
 const Login = () => {
   const { logIn } = useContext(AuthContext);
+  const location =useLocation();
+  const navigate= useNavigate();
   const handelForm = (e) => {
     e.preventDefault();
 
@@ -18,10 +21,25 @@ const Login = () => {
 
     logIn(email, password)
       .then((result) => {
-        console.log(result.user);
+       if(result){
+         Swal.fire({
+           position: 'center',
+           icon: 'success',
+           title: 'SuccessFully Login, Welcome To Dragon News',
+           showConfirmButton: false,
+           timer: 1500
+          })
+          navigate(location.state? location.state : "/");
+       }
+
       })
-      .catch((error) => {
-        console.error('Enter Right Email And Password',error);
+      .catch((error) =>{
+        console.error(error)
+        return Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!  Enter Right Email And Password',
+        })
       });
   };
   return (

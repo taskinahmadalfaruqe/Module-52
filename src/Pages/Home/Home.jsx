@@ -1,8 +1,11 @@
+import { useLoaderData } from "react-router-dom";
 import Header from "../../Component/Header/Header";
 import LeftSideNav from "../../Component/LeftSideNav/LeftSideNav";
 import RightSiteNav from "../../Component/RightSiteNav/RightSiteNav";
+import LodeSingleNews from "../../Component/LodeSingleNews/LodeSingleNews";
 
 const Home = () => {
+    const news = useLoaderData();
     return (
         <div className=" py-10">
             <Header></Header>
@@ -11,7 +14,12 @@ const Home = () => {
                     <LeftSideNav ></LeftSideNav>
                 </div>
                 <div className="lg:col-span-2">
-                    hello from home
+                    <h2 className="text-2xl font-semibold">Dragon News Home</h2>
+                    <div>
+                        {
+                            news.map(singleNews=><LodeSingleNews key={singleNews._id} singleNews={singleNews} ></LodeSingleNews>)
+                        }
+                    </div>
                 </div>
                 <div className="lg:col-span-1">
                     <RightSiteNav ></RightSiteNav>
