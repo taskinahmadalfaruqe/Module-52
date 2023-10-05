@@ -4,7 +4,7 @@ import Home from "../Pages/Home/Home";
 import About from "../Pages/About/About";
 import Career from "../Pages/Career/Career";
 import Login from "../Pages/Login/Login";
-import SignUp from "../Pages/Signup/SignUp";
+import SignUp from "../Pages/SineUp/SineUp";
 import NewsDetails from "../Pages/NewsDetails/NewsDetails";
 import PrivetRouts from "./PrivetRouts";
 
@@ -43,7 +43,8 @@ const Routes= createBrowserRouter([
             },
             {
                 path: '/news/:id',
-                element: <PrivetRouts><NewsDetails></NewsDetails></PrivetRouts>
+                element: <PrivetRouts><NewsDetails></NewsDetails></PrivetRouts>,
+                loader: ()=>fetch('/news.json')
             },
         ]
     }

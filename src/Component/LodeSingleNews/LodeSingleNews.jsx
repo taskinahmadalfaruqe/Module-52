@@ -37,7 +37,7 @@ const LodeSingleNews = ({singleNews}) => {
             <h2 className="text-2xl font-semibold">{title}</h2>
                 {
                     details.length>200?
-                    <p>{details.slice(0,200)}.... <Link to={`/news/${_id}`} className="text-lg font-semibold text-blue-500 hover:text-red-500">Read More</Link></p>
+                    <p>{details.slice(0,200)}.... <Link to={`/news/${_id}`} value={_id} className="text-lg font-semibold text-blue-500 hover:text-red-500">Read More</Link></p>
                     :
                     <p>{details}</p>
                 }
@@ -55,7 +55,7 @@ const LodeSingleNews = ({singleNews}) => {
 };
 
 LodeSingleNews.propTypes = {
-    singleNews: PropTypes.object.isRequired
+    singleNews: PropTypes.object.isRequired,
 };
 
 export default LodeSingleNews;
