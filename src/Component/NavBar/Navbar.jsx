@@ -3,20 +3,55 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/Context";
 
 const Navbar = () => {
-  const {user, logOut}=useContext(AuthContext);
+  const { user, logOut, isLoading } = useContext(AuthContext);
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-[100vh] w-full">
+        <span className="loading loading-spinner loading-lg text-red-500"></span>
+      </div>
+    );
+  }
   const NavLinks = (
     <div className="flex gap-5 flex-col lg:flex-row">
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive
+              ? "bg-[#D72050] text-white text-lg font-semibold hover:bg-[#D72050]"
+              : "text-black text-lg font-semibold"
+          }
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/about">About</NavLink>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive
+              ? "bg-[#D72050] text-white text-lg font-semibold hover:bg-[#D72050]"
+              : "text-black text-lg font-semibold"
+          }
+        >
+          About
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/career">Career</NavLink>
+        <NavLink
+          to="/career"
+          className={({ isActive }) =>
+            isActive
+              ? "bg-[#D72050] text-white text-lg font-semibold hover:bg-[#D72050]"
+              : "text-black text-lg font-semibold"
+          }
+        >
+          Career
+        </NavLink>
       </li>
     </div>
   );
+
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -58,23 +93,21 @@ const Navbar = () => {
             </label>
           </div>
           <div>
-            {
-              user ? 
+            {user ? (
               <Link
-              onClick={logOut}
-              className=" btn bg-[#D72050] hover:text-[#D72050] hover:border-[#D72050] text-white "
-            >
-              <button>Sign Out</button>
-            </Link>
-              :
+                onClick={logOut}
+                className=" btn bg-[#D72050] hover:text-[#D72050] hover:border-[#D72050] text-white "
+              >
+                <button>Sign Out</button>
+              </Link>
+            ) : (
               <Link
-              to="/login"
-              className=" btn bg-[#D72050] hover:text-[#D72050] hover:border-[#D72050] text-white "
-            >
-              <button>Login</button>
-            </Link>
-            }
-            
+                to="/login"
+                className=" btn bg-[#D72050] hover:text-[#D72050] hover:border-[#D72050] text-white "
+              >
+                <button>Login</button>
+              </Link>
+            )}
           </div>
         </div>
       </div>

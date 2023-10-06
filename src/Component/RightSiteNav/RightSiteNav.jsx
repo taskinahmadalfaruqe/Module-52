@@ -44,7 +44,7 @@ const RightSiteNav = () => {
                 </div>
             </div>
 
-            <div className="Q_zon bg-[#F3F3F3] w-full p-3 space-y-3 rounded-md">
+            <div className="Q_zon bg-[#F3F3F3] w-full p-3 space-y-3 rounded-md flex justify-center items-center flex-col">
                 <img src="/qZone1.png" alt="Q Zone" />
                 <img src="/qZone2.png" alt="Q Zone" />
                 <img src="/qZone3.png" alt="Q Zone" />

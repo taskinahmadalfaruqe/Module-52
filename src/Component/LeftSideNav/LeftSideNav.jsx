@@ -21,7 +21,11 @@ const LeftSideNav = () => {
             <NavLink
               key={singleCategory.id}
               to={`/category/${singleCategory.id}`}
-              className="block font-semibold hover:bg-slate-200 p-2 rounded-md"
+              className={({isActive}) =>
+                isActive
+                  ? "block font-semibold p-2 rounded-md bg-[#D72050] text-white"
+                  : "block font-semibold hover:bg-slate-200 p-2 rounded-md"
+              }
             >
               {singleCategory.name}
             </NavLink>
@@ -29,7 +33,6 @@ const LeftSideNav = () => {
         </ul>
       </div>
       <div className="my-5 flex flex-col gap-5">
-
         <div className="card card-compact w-full bg-base-100 shadow-xl rounded-md">
           <figure>
             <img src="/1.png" alt="Shoes" />

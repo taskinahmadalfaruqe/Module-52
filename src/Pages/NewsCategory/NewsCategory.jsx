@@ -29,7 +29,7 @@ const NewsCategory = () => {
     return (
         <div>
             <Header/>
-            <div className="grid gap-5 grid-cols-4">
+            <div className="grid grid-cols-1 justify-center items-start gap-5 lg:grid-cols-4">
                 <LeftSideNav className="col-span-1"/>
                 <div className="col-span-2">
                     <h2 className="text-2xl font-semibold">News Found {lodeNews.length}</h2>
