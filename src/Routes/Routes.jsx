@@ -7,6 +7,7 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SineUp/SineUp";
 import NewsDetails from "../Pages/NewsDetails/NewsDetails";
 import PrivetRouts from "./PrivetRouts";
+import NewsCategory from "../Pages/NewsCategory/NewsCategory";
 
 const Routes= createBrowserRouter([
     {
@@ -39,7 +40,8 @@ const Routes= createBrowserRouter([
             },
             {
                 path: '/category/:id',
-                element: <div>hello</div>
+                element: <NewsCategory></NewsCategory>,
+                loader: ()=>fetch('/news.json')
             },
             {
                 path: '/news/:id',

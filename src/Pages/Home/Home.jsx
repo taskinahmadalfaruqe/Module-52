@@ -10,9 +10,7 @@ const Home = () => {
 
     // const[getNews,setNews]=useState();
 
-    const handelGetNews=(allNews)=>{
-        console.log(allNews)
-    }
+    
 
 
     return (
@@ -26,7 +24,7 @@ const Home = () => {
                     <h2 className="text-2xl font-semibold">Dragon News Home</h2>
                     <div>
                         {
-                            news.map(singleNews=><LodeSingleNews key={singleNews._id} handelGetNews={handelGetNews} singleNews={singleNews} ></LodeSingleNews>)
+                            news.map(singleNews=><LodeSingleNews key={singleNews._id}  singleNews={singleNews} ></LodeSingleNews>)
                         }
                     </div>
                 </div>
